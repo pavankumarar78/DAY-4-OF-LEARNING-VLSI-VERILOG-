@@ -1,0 +1,12 @@
+module top;
+function even_check(input integer a);
+    begin
+	   if(a%2==0) even_check=1;
+	   else even_check=0;
+	end
+endfunction
+initial begin
+if(even_chec(10)) $display("even");
+else $display("not even");
+end
+endmodule 
