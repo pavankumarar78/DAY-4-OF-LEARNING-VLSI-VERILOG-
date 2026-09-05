@@ -1,0 +1,24 @@
+module top;
+    function integer fact_fun(input integer n);//1*2*3*4..n
+	   integer i;
+	 begin
+	   fact_fun=1;
+	   if(n==0) fact_fun=1;
+	   else begin
+		      for(i=1;i<=n;i=i+1)
+		         fact_fun=fact_fun*i;
+	   end
+	 end
+	endfunction
+function automatic integer fact_fun_recursive(input integer n);//1*2*3*4..n
+	   integer i;
+	 begin
+	    if(n==1) fact_fun_recursive=1;
+else fact_fun_recursive=n*fact_fun_recursive(n-1)
+	 end
+	endfunction
+
+    initial begin
+	    $display("factorial of 3 =%0d",fact_fun(3));
+	end
+endmodule
