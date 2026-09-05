@@ -1,0 +1,12 @@
+module top;
+function odd(input integer a);
+    begin
+	   if(a%2==1) odd=1;
+	   else odd=0;
+	end
+endfunction
+initial begin
+if(odd(10)) $display("odd");
+else $display("not odd");
+end
+endmodule 
