@@ -1,0 +1,30 @@
+module demux(i,y,s);
+   parameter N=16;
+   parameter WIDTH=$clog2(N); //4
+   input i;
+   output reg [N-1:0]y;
+   input [WIDTH-1:0]s;
+  
+   always@(*)begin
+      y=0;
+	  y[s]=i;
+   end
+endmodule 
+module top;
+     parameter N=30;
+   parameter WIDTH=$clog2(N); //4
+   reg i;
+   wire [N-1:0]y;
+   reg [WIDTH-1:0]s;
+   demux #(N,WIDTH) dut(i,y,s);
+	initial begin
+	   repeat(10)begin
+	      {i}=$random;
+		  s=$urandom_range(0,N-1);
+          #1;
+		  $display("i=%b s=%0d Y=%b",i,s,y);
+	end
+	end
+endmodule 
+
+
