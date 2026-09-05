@@ -1,0 +1,34 @@
+module ha(a_ha,b_ha,s_ha,c_ha);
+   input a_ha,b_ha;
+   output s_ha,c_ha;
+
+     assign {c_ha,s_ha}=a_ha+b_ha;
+endmodule 
+
+module fa(a_fa,b_fa,cin_fa,s_fa,c_fa);
+    input a_fa,b_fa,cin_fa;
+	output s_fa,c_fa;
+	//connection by name
+	ha u1(.a_ha(a_fa),.b_ha(b_fa),.s_ha(n1),.c_ha(n2));
+	ha u2(.a_ha(n1),.b_ha(cin_fa),.s_ha(s_fa),.c_ha(n3));
+	or g1(c_fa,n2,n3);
+endmodule 
+
+module top;
+   reg a,b,cin;
+   wire s,c;
+   fa dut(.a_fa(a),.b_fa(b),.cin_fa(cin),.s_fa(s),.c_fa(c));
+   initial begin
+     repeat(5)begin
+      {a,b,cin}=$random;
+	  #1;
+	  $display("a=%b b=%b cin=%b sum=%b carry=%b",a,b,cin,s,c);
+     end
+   end
+endmodule 
+
+
+
+
+
+ 
