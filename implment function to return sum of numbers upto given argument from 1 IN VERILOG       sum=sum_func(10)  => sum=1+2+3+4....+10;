@@ -1,0 +1,6 @@
+ function integer sum(input integer n);
+       integer i;
+       begin
+	      for(i=1;i<=n;i=i+1) sum=sum+i;
+	   end
+   endfunction
