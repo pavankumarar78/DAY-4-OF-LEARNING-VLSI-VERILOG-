@@ -1,0 +1,12 @@
+function prime_check(input integer n);  //prim_chec(5'bxxxxx);
+      if(n<=1)prime_check=0;
+	  else begin
+	     prime_chec=1;
+	      for(i=2;i<n;i=i+1)begin 
+		    if(n%i==0) begin
+			  prime_check=0;
+			   i=n;
+			end
+		  end
+	  end
+  endfunction
